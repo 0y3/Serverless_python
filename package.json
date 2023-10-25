@@ -1,0 +1,15 @@
+{
+  "name": "locker-service-python-http-api",
+  "version": "1.0.0",
+  "description": "locker service aws python http api project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "sls deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-python-requirements": "^6.0.0"
+  }
+}
