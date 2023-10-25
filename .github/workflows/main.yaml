@@ -35,6 +35,8 @@ jobs:
           aws-region: us-east-1
       - name: Serverless Deploy
         uses: serverless/github-action@v3.2
-        run: |
-          sls plugin install -n serverless-python-requirements
-          sls deploy
+          args: -c "serverless plugin install -n serverless-python-requirements && serverless deploy"
+          entrypoint: /bin/sh
+        # run: |
+        #   sls plugin install -n serverless-python-requirements
+        #   sls deploy
