@@ -1,0 +1,41 @@
+name: Deploy main branch
+# on main branch updates
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+        python-version:
+          - 3.8
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies
+        run: npm install
+        # run: |
+          # npm install serverless -g
+          # npm install
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Serverless Deploy
+        uses: serverless/github-action@v3.2
+        run: |
+          sls plugin install -n serverless-python-requirements
+          sls deploy
