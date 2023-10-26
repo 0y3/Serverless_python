@@ -63,7 +63,7 @@ def currentTime(event, context):
 def getAllPackageCountByStatus(event, context):
     try:
         cur = conn.cursor(cursor_factory = RealDictCursor)
-        id = event['queryStringParameters']
+        id = event['pathParameters']['id']
         query = """
                     SELECT COUNT(*) FROM locker_service.tbl_package WHERE locker_service.tbl_package.package_status= %s
                 """
@@ -80,7 +80,7 @@ def getAllPackageCountByStatus(event, context):
         # )
         transactionResponse = {}
         transactionResponse['data'] = json_result
-        transactionResponse['message'] = event
+        # transactionResponse['message'] = event
 
         # 3. Construct http response object
         response = {}
