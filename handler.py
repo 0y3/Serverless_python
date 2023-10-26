@@ -63,7 +63,12 @@ def currentTime(event, context):
 def getAllPackageCountByStatus(event, context):
     try:
         cur = conn.cursor(cursor_factory = RealDictCursor)
-        cur.execute("SELECT COUNT(*) FROM locker_service.tbl_package WHERE locker_service.tbl_package.package_status= 4")
+        id = event['pathParameters']
+        query = """
+                    SELECT COUNT(*) FROM locker_service.tbl_package WHERE locker_service.tbl_package.package_status= %s
+                """
+        data = (id,)
+        cur.execute(query,data)
         results = cur.fetchall()
         json_result = json.dumps(results)
         print(json_result)
@@ -71,7 +76,10 @@ def getAllPackageCountByStatus(event, context):
         # event['queryStringParameters']
         return dict(
             statusCode=200,
-            body=json_result,
+            body= { 
+                'data': json_result,
+                'event' :event,
+                },
         )
     except Exception as e:
         return dict(
@@ -127,7 +135,7 @@ def savePackage(event, context):
         dlvry_mthd = bodyData['dlvry_mthd']
         package_status = bodyData['package_status']
         courier_id = bodyData['courier_id']
-        data = (user_id,package_start_time,package_end_time,locker_id,package_size,package_wght,dlvry_mthd,package_status,courier_id)
+        data = (user_id,package_start_time,package_end_time,locker_id,package_size,package_wght,dlvry_mthd,package_status,courier_id,)
         
         cur = conn.cursor()
         cur.execute(query,data)

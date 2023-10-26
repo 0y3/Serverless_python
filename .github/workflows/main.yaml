@@ -1,4 +1,4 @@
-name: Deploy main branch
+name: Deploy master branch
 # on main branch updates
 on:
   push:
@@ -7,7 +7,7 @@ on:
       
 jobs:
   deploy:
-    # name: deploy
+    name: deploy to master
     runs-on: ubuntu-latest
     strategy:
       matrix:
