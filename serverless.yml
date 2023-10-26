@@ -61,8 +61,11 @@ custom:
     region: us-east-1
     profile: dev
   staging:
-    region: ap-south-1
+    region: af-south-1
     profile: staging
+  prod:
+    region: af-south-1
+    profile: prod
 
   pythonRequirements:
     dockerizePip: non-linux
