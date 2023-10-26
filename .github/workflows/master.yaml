@@ -72,8 +72,8 @@ jobs:
       #    uses: Jonasdart/actions.serverless-with-python-requirements@2.0.1
             
 
-      - name: Serverless with Python Requirements
-        uses: dhollerbach/actions.serverless-with-python-requirements@master
+      - name: Serverless Deploy with Python Requirements
+        uses: Jonasdart/actions.serverless-with-python-requirements@2.0.1
         with:
           args: '--stage staging'  # any deploy arguments you want to pass '--stage qa --region $REGION'
         env:
