@@ -87,7 +87,7 @@ def getAllPackageCountByStatus(event, context):
         response['statusCode'] = 200
         response['headers'] = {}
         response['headers']['Content-Type'] = 'application/json'
-        response['body'] = json.dumps(transactionResponse)
+        response['body'] = transactionResponse
 
         return response
     except Exception as e:
