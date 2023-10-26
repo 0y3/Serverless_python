@@ -68,8 +68,8 @@ jobs:
           npm install serverless -g
           npm install
 
-      - name: Serverless Deploy with Python Requirements
-         uses: Jonasdart/actions.serverless-with-python-requirements@2.0.1
+      # - name: Serverless Deploy with Python Requirements
+      #    uses: Jonasdart/actions.serverless-with-python-requirements@2.0.1
             
 
       - name: Serverless with Python Requirements
