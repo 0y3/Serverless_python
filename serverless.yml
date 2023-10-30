@@ -55,7 +55,7 @@ plugins:
   - serverless-offline
 
 custom:
-  defaultEnv: dev #Env Specific Variables
+  defaultEnv: prod #Env Specific Variables
 
   dev:
     region: us-east-1
