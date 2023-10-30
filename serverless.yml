@@ -55,7 +55,7 @@ plugins:
   - serverless-offline
 
 custom:
-  defaultEnv: dev #Env Specific Variables
+  defaultEnv: prod #Env Specific Variables
 
   dev:
     region: us-east-1
@@ -66,10 +66,6 @@ custom:
   prod:
     region: af-south-1
     profile: prod
-  myStage: ${opt:stage, self:provider.stage}
-  # myRegion: ${self:custom.${self:provider.stage}.region}     # ${opt:region, 'us-west-1'}
-  # myCfnRole: ${opt:role, false}
-  # myLambdaMemory: ${opt:memory, 1024}
 
   pythonRequirements:
     dockerizePip: non-linux
