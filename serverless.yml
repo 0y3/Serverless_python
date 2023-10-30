@@ -6,7 +6,7 @@ provider:
   runtime: python3.9
   # region: us-east-1
   # stage: "dev"
-  stage: ${opt:stage, self:custom.defaultEnv} # ${opt:stage, self:custom.defaultStage} which means that we can pass the value of stage while running command serverless deploy or it will user the default stage. e.g if you write serverless deploy --stage staging o it will be translated to stage: staging
+  stage: ${opt:stage, self:custom.defaultEnv} # ${opt:stage, self:custom.defaultStage} which means that we can pass the value of stage while running command serverless deploy or it will user the default prod. e.g if you write serverless deploy --stage prod o it will be translated to stage: prod
   region: ${self:custom.${self:provider.stage}.region}
   # profile: ${opt:profile, self:custom.${self:provider.stage}.profile} 
   timeout: 10
