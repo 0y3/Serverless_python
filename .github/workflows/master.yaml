@@ -72,15 +72,17 @@ jobs:
       #    uses: Jonasdart/actions.serverless-with-python-requirements@2.0.1
       
       # - name: Serverless Deploy with Python Requirements
-      # uses: dhollerbach/actions.serverless-with-python-requirements@v2
+      # uses: dhollerbach/actions.serverless-with-python-requirements@v2   #works
             
       - name: Serverless Deploy with Python Requirements
-        uses: dhollerbach/actions.serverless-with-python-requirements@v2
+        uses: bildvitta/serverless-with-python-requirements@v1.0.6
+        with:
+          args: '--stage prod'
         env:
           # SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
           # or if using AWS credentials directly
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          STAGE: prod
+          # STAGE: prod
           # REGION: ${{ secrets.AWS_REGION_QA }}
             
