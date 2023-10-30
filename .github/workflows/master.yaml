@@ -70,17 +70,20 @@ jobs:
 
       # - name: Serverless Deploy with Python Requirements
       #    uses: Jonasdart/actions.serverless-with-python-requirements@2.0.1
+      
+      # - name: Serverless Deploy with Python Requirements
+      # uses: dhollerbach/actions.serverless-with-python-requirements@v2
             
       - name: Serverless Deploy with Python Requirements
-        uses: dhollerbach/actions.serverless-with-python-requirements@v2
-        # with:
+        uses: sumeetweb/serverless-deploy@master
+        with:
          # any deploy arguments you want to pass '--stage qa --region $REGION'
-          # args: '--stage prod'
+          args: '--stage dev'
         env:
           # SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
           # or if using AWS credentials directly
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          STAGE: prod
+          # STAGE: prod
           # REGION: ${{ secrets.AWS_REGION_QA }}
             
