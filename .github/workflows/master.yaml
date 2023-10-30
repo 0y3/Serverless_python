@@ -75,7 +75,7 @@ jobs:
       # uses: dhollerbach/actions.serverless-with-python-requirements@v2
             
       - name: Serverless Deploy with Python Requirements
-        uses: sumeetweb/serverless-deploy@master
+        uses: sumeetweb/serverless-deploy@3.19
         with:
          # any deploy arguments you want to pass '--stage qa --region $REGION'
           args: '--stage dev'
