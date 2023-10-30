@@ -77,12 +77,11 @@ jobs:
       - name: Serverless Deploy with Python Requirements
         uses: Jonasdart/actions.serverless-with-python-requirements@2.0.1
         with:
-          args: '--stage prod'
+          args: 'deploy --stage prod'
         env:
           # SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
           # or if using AWS credentials directly
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          # STAGE: prod
           # REGION: ${{ secrets.AWS_REGION_QA }}
             
